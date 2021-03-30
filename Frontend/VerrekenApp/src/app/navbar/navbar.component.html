@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand" routerLink="Home">Pall's 2 Pay</a>
+    
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Pal-Groups">Groups</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="Home">My-Wallet</a>
+        </li>
+      </ul>
+
+      <div *ngIf="isLogedIn(); else elseBlock"  class="form-inline">
+        <p class="username"> {{username}} </p>
+        <button mat-raised-button color="warn" type="button" (click)="onClickSignOut()">Sign-out</button>
+      </div>
+
+      <ng-template #elseBlock>
+        <form class="form-inline">
+          <button mat-raised-button color="primary" type="button" (click)="goTo('/Login')">Log-in</button>
+        </form>
+      </ng-template>
+  </nav>
